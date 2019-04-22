@@ -3,16 +3,61 @@
   "version": "1.0.0",
   "description": "A minimal Electron application",
   "main": "main.js",
+  "build": {
+    "productName":"s-electron",
+    "appId": "s-electron",
+    "copyright":"s-electron",
+    "directories": { 
+      "output": "dist"
+    }, 
+    "win": {  
+      "icon": "favicon256.ico",
+      "target": [
+        {
+          "target": "nsis"
+        }
+      ]
+    },
+    "dmg": {
+      "contents": [
+        {
+          "x": 410,
+          "y": 150,
+          "type": "link",
+          "path": "/Applications"
+        },
+        {
+          "x": 130,
+          "y": 150,
+          "type": "file"
+        }
+      ]
+    },
+    "mac": {
+      "icon": "favicon.icon.icns"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowElevation": true,
+      "allowToChangeInstallationDirectory": true,
+      "installerIcon": "./favicon256.ico",
+      "uninstallerIcon": "./favicon256.ico",
+      "installerHeaderIcon": "./favicon256.ico",
+      "createDesktopShortcut": true, 
+      "createStartMenuShortcut": true,
+      "shortcutName": "s-electron"
+    }
+  },
   "scripts": {
     "start": "electron .",
-    "osx": "electron-packager . $npm_package_productName --out dist/osx --overwrite --platform=darwin --arch=x64 --icon=favicon.ico.icns --prune=true --squirrel-install --ignore=node_modules/electron-* --electron-version=1.7.9 --ignore=$npm_package_productName-win32-x64 --version-string.CompanyName=$npm_package_productName --version-string.ProductName=$npm_package_productName",
-    "win64": "electron-packager . $npm_package_productName --out dist/win --overwrite --platform=win32 --arch=x64 --icon=favicon.ico  --app-version=1.0 --prune=true --squirrel-install --ignore=node_modules/electron-* --electron-version=1.7.9 --ignore=$npm_package_productName-win32-x64 --version-string.CompanyName=$npm_package_productName --version-string.ProductName=$npm_package_productName"
+    "mac": "electron-builder -m",
+    "win": "electron-builder -w"
   },
   "author": "fishyang",
   "license": "CC0-1.0",
   "devDependencies": {
     "electron": "^4.1.4",
-    "electron-packager": "^13.1.1"
+    "electron-builder": "^20.39.0"
   },
   "dependencies": {}
 }
