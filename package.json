@@ -1,0 +1,18 @@
+{
+  "name": "s-electron",
+  "version": "1.0.0",
+  "description": "A minimal Electron application",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "osx": "electron-packager . $npm_package_productName --out dist/osx --overwrite --platform=darwin --arch=x64 --icon=favicon.ico.icns --prune=true --squirrel-install --ignore=node_modules/electron-* --electron-version=1.7.9 --ignore=$npm_package_productName-win32-x64 --version-string.CompanyName=$npm_package_productName --version-string.ProductName=$npm_package_productName",
+    "win64": "electron-packager . $npm_package_productName --out dist/win --overwrite --platform=win32 --arch=x64 --icon=favicon.ico  --app-version=1.0 --prune=true --squirrel-install --ignore=node_modules/electron-* --electron-version=1.7.9 --ignore=$npm_package_productName-win32-x64 --version-string.CompanyName=$npm_package_productName --version-string.ProductName=$npm_package_productName"
+  },
+  "author": "fishyang",
+  "license": "CC0-1.0",
+  "devDependencies": {
+    "electron": "^4.1.4",
+    "electron-packager": "^13.1.1"
+  },
+  "dependencies": {}
+}
