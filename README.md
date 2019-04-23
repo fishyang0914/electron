@@ -1,3 +1,7 @@
+# 把網站包成桌面應用程式
+npm run mac
+npm run win
+
 # electron-quick-start
 
 **Clone and run for a quick way to see Electron in action.**
@@ -47,4 +51,5 @@ Note: If you're using Linux Bash for Windows, [see this guide](https://www.howto
 ## Reference
 
 https://www.jianshu.com/p/15dca14e50aa
+
 https://dotblogs.com.tw/explooosion/2018/03/25/181604
